@@ -1,18 +1,21 @@
 package com.cube.arc.dmsdk.manager
 
 import com.cube.arc.dmsdk.model.Directory
+import com.google.gson.Gson
 import com.google.gson.JsonElement
+import com.google.gson.reflect.TypeToken
 import java.io.InputStream
+import java.io.InputStreamReader
 
 /**
  * Manager class for loading data source into usable list of [Directory] for easy access
  */
-object DirectoriesManager
+object DirectoryManager
 {
 	/**
 	 * Internal list of [Directory] loaded via [init]. Do not set this via assign, do so via any [init] method
 	 */
-	var directories: List<Directory> = listOf()
+	var directories: ArrayList<Directory> = arrayListOf()
 		set(value){}
 
 	/**
@@ -20,7 +23,8 @@ object DirectoriesManager
 	 */
 	public fun init(dataSource: InputStream)
 	{
-
+		directories.clear()
+		directories.addAll(Gson().fromJson(InputStreamReader(dataSource), object : TypeToken<ArrayList<Directory>?>(){}.type) ?: arrayListOf<Directory>())
 	}
 
 	/**
@@ -28,7 +32,8 @@ object DirectoriesManager
 	 */
 	public fun init(dataSource: String)
 	{
-
+		directories.clear()
+		directories.addAll(Gson().fromJson(dataSource, object : TypeToken<ArrayList<Directory>?>(){}.type) ?: arrayListOf<Directory>())
 	}
 
 	/**
@@ -36,7 +41,8 @@ object DirectoriesManager
 	 */
 	public fun init(dataSource: JsonElement)
 	{
-
+		directories.clear()
+		directories.addAll(Gson().fromJson(dataSource, object : TypeToken<ArrayList<Directory>?>(){}.type) ?: arrayListOf<Directory>())
 	}
 
 	/**
@@ -44,25 +50,28 @@ object DirectoriesManager
 	 */
 	public fun init(dataSource: List<Directory>)
 	{
-
+		directories.clear()
+		directories.addAll(dataSource)
 	}
-
-	//////
 
 	/**
 	 * Gets a directory for a given [id], or `null` if one was not found
 	 */
-	public fun directory(id: Int, subList: List<Directory> = directories): Directory?
+	public fun directory(id: Int?, subList: List<Directory> = directories): Directory?
 	{
+		var found = subList.forEach { subDirectory ->
+			if (subDirectory.id == id) return subDirectory
+
+			directory(id, subDirectory.directories)?.let {
+				return it
+			}
+		}
+
 		return null
 	}
 
 	/**
-	 * Searches for a directory within the given [root] [Directory]
-	 * @return null if one was not found
+	 * Gets the parent [Directory] object, or null if the object is a root object, or could not be found
 	 */
-	public fun search(root: Directory, id: Int): Directory?
-	{
-		return null
-	}
+	public fun parent(directory: Directory): Directory? = directory(directory.parentId)
 }
