@@ -11,6 +11,11 @@ data class Directory
 	var id : Int,
 
 	/**
+	 * Identifier of the parent directory object
+	 */
+	var parentId : Int? = null,
+
+	/**
 	 * The order of the directory, 0-based index
 	 */
 	var order: Int = 0,
@@ -40,28 +45,19 @@ data class Directory
 	 */
 	var metadata : Map<String, Any?>? = null
 )
+
+/**
+ * Flattens the recursive array to return a 1D list of type [Directory] from [Directory.directories]
+ */
+public fun List<Directory>.flat(): List<Directory>
 {
-	/**
-	 * Flattens the recursive array to return a 1D list of type [Directory] from [Directory.directories]
-	 */
-	fun List<Directory>.flat(): List<Directory>
+	var results = arrayListOf<Directory>()
+
+	for (item in this)
 	{
-		var results = arrayListOf<Directory>()
-
-		for (item in this)
-		{
-			results.add(item)
-			results.addAll(item.directories.flat())
-		}
-
-		return results
+		results.add(item)
+		results.addAll(item.directories.flat())
 	}
 
-	/**
-	 * Gets the parent [Directory] object, or null if the object is a root object, or could not be found
-	 */
-	fun Directory.parent(): Directory?
-	{
-		return null
-	}
+	return results
 }
