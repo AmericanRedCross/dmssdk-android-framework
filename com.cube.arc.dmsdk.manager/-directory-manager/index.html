@@ -1,0 +1,66 @@
+<HTML>
+<HEAD>
+<meta charset="UTF-8">
+<title>DirectoryManager - dmsdk</title>
+<link rel="stylesheet" href="../../style.css">
+</HEAD>
+<BODY>
+<a href="../../index.html">dmsdk</a>&nbsp;/&nbsp;<a href="../index.html">com.cube.arc.dmsdk.manager</a>&nbsp;/&nbsp;<a href=".">DirectoryManager</a><br/>
+<br/>
+<h1>DirectoryManager</h1>
+<code><span class="keyword">object </span><span class="identifier">DirectoryManager</span></code>
+<p>Manager class for loading data source into usable list of <a href="../../com.cube.arc.dmsdk.model/-directory/index.html">Directory</a> for easy access</p>
+<h3>Properties</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="directories.html">directories</a></p>
+</td>
+<td>
+<code><span class="keyword">var </span><span class="identifier">directories</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-array-list/index.html"><span class="identifier">ArrayList</span></a><span class="symbol">&lt;</span><a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">&gt;</span></code>
+<p>Internal list of <a href="../../com.cube.arc.dmsdk.model/-directory/index.html">Directory</a> loaded via <a href="init.html">init</a>. Do not set this via assign, do so via any <a href="init.html">init</a> method</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3>Functions</h3>
+<table>
+<tbody>
+<tr>
+<td>
+<p><a href="directory.html">directory</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">directory</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$directory(kotlin.Int, kotlin.collections.List((com.cube.arc.dmsdk.model.Directory)))/id">id</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html"><span class="identifier">Int</span></a><span class="symbol">?</span><span class="symbol">, </span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$directory(kotlin.Int, kotlin.collections.List((com.cube.arc.dmsdk.model.Directory)))/subList">subList</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">&gt;</span>&nbsp;<span class="symbol">=</span>&nbsp;directories<span class="symbol">)</span><span class="symbol">: </span><a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">?</span></code>
+<p>Gets a directory for a given <a href="directory.html#com.cube.arc.dmsdk.manager.DirectoryManager$directory(kotlin.Int, kotlin.collections.List((com.cube.arc.dmsdk.model.Directory)))/id">id</a>, or <code>null</code> if one was not found</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="init.html">init</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$init(java.io.InputStream)/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<span class="identifier">InputStream</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialises the manager instance with a stream to a file to decode into <a href="directories.html">directories</a></p>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$init(kotlin.String)/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html"><span class="identifier">String</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialises the manager instance with a String representation of <a href="directories.html">directories</a></p>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$init(com.google.gson.JsonElement)/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<span class="identifier">JsonElement</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialises the manager instance with a <a href="#">JsonElement</a> object</p>
+<code><span class="keyword">fun </span><span class="identifier">init</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$init(kotlin.collections.List((com.cube.arc.dmsdk.model.Directory)))/dataSource">dataSource</span><span class="symbol">:</span>&nbsp;<a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html"><span class="identifier">List</span></a><span class="symbol">&lt;</span><a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">&gt;</span><span class="symbol">)</span><span class="symbol">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-unit/index.html"><span class="identifier">Unit</span></a></code>
+<p>Initialises the manager instance with a list of <a href="../../com.cube.arc.dmsdk.model/-directory/index.html">Directory</a> models</p>
+</td>
+</tr>
+<tr>
+<td>
+<p><a href="parent.html">parent</a></p>
+</td>
+<td>
+<code><span class="keyword">fun </span><span class="identifier">parent</span><span class="symbol">(</span><span class="identifier" id="com.cube.arc.dmsdk.manager.DirectoryManager$parent(com.cube.arc.dmsdk.model.Directory)/directory">directory</span><span class="symbol">:</span>&nbsp;<a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">)</span><span class="symbol">: </span><a href="../../com.cube.arc.dmsdk.model/-directory/index.html"><span class="identifier">Directory</span></a><span class="symbol">?</span></code>
+<p>Gets the parent <a href="../../com.cube.arc.dmsdk.model/-directory/index.html">Directory</a> object, or null if the object is a root object, or could not be found</p>
+</td>
+</tr>
+</tbody>
+</table>
+</BODY>
+</HTML>

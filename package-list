@@ -1,0 +1,6 @@
+$dokka.format:html
+$dokka.linkExtension:html
+$dokka.location:com.cube.arc.dmsdk.model$flat(kotlin.collections.List((com.cube.arc.dmsdk.model.Directory)))com.cube.arc.dmsdk.model/kotlin.collections.-list/flat.html
+com.cube.arc.dmsdk
+com.cube.arc.dmsdk.manager
+com.cube.arc.dmsdk.model
