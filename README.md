@@ -1,10 +1,10 @@
 # Readme
 
-This is the DMSDK for the [DMS]() system created to manage documents in a hierarchical way.
+This is the DMSSDK for the Bound DMS system created to manage documents in a hierarchical way.
 
 # Usage
 
-Either download this SDK and include it into your project, or you can copy the aar directly from [here (v1.0)]()
+Either download this SDK and include it into your project, or you can copy the aar directly from [here (v1.0)](dmsdk-v1.0.aar)
 
 The library is made up of 2 parts, the `DirectoryManager` singleton, and the data structures.
 
